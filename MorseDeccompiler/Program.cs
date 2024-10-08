@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MorseLanguageDecompiler
+namespace MorseDecompiler
 {
     public static class Program
     {
