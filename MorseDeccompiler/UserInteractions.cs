@@ -12,35 +12,35 @@ namespace MorseCodeManager
 
             do
             {
-                Console.WriteLine("\n1. Enter 1 to compile text to morse code." + 
-                                  "\n2. Enter 2 to decompile morse code to txt." + 
-                                  "\n3. Enter 3 to set the character for the short signal." + 
-                                  "\n4. Enter 4 to set the cahracter for the long signal." + 
-                                  "\n5. Enter 5 to check the current characters that represent the short and long signals" + 
+                Console.WriteLine("\n1. Enter 1 to compile text to Morse code." +
+                                  "\n2. Enter 2 to decompile Morse code to text." +
+                                  "\n3. Enter 3 to set the character for the short signal." +
+                                  "\n4. Enter 4 to set the character for the long signal." +
+                                  "\n5. Enter 5 to check the current characters that represent the short and long signals." +
                                   "\n6. Enter 6 to quit the Morse Code Manager application.");
 
-                char enteredChar = GetCharFromUser("Enter the corresponding number of the menu that you want to choose from the above: ");
+                char enteredChar = GetCharFromUser("Enter the corresponding number of the menu option you want to choose: ");
 
                 switch (enteredChar)
                 {
                     case '1':
-                        string textToCompile = GetStringFromUser("Enter the text you want to compile to morse code: ");
+                        string textToCompile = GetStringFromUser("Enter the text you want to compile to Morse code: ");
                         Console.WriteLine($"Compiled text:\n{morseCode.Compile(textToCompile)}");
                         break;
                     case '2':
-                        string textToDecompile = GetStringFromUser("Enter the morse code you want to decompile the text: ");
+                        string textToDecompile = GetStringFromUser("Enter the Morse code you want to decompile to text: ");
                         Console.WriteLine($"Decompiled text:\n{morseCode.Decompile(textToDecompile)}");
                         break;
                     case '3':
-                        char enteredShortChar  = GetCharFromUser("Enter the character that will represent the short signal: ");
+                        char enteredShortChar = GetCharFromUser("Enter the character that will represent the short signal: ");
                         if (enteredShortChar != morseCode.LongChar)
                         {
                             morseCode.ShortChar = enteredShortChar;
-                            Console.WriteLine($"The cahracter for the short signal was set to: {morseCode.ShortChar}");
+                            Console.WriteLine($"The character for the short signal was set to: {morseCode.ShortChar}");
                         }
                         else
                         {
-                            Console.WriteLine($"Unable to set short signal to '{enteredShortChar}', becuase the long signal is currently represented by it.");
+                            Console.WriteLine($"Unable to set short signal to '{enteredShortChar}', because the long signal is currently represented by it.");
                         }
                         break;
                     case '4':
@@ -48,11 +48,11 @@ namespace MorseCodeManager
                         if (enteredLongChar != morseCode.ShortChar)
                         {
                             morseCode.LongChar = enteredLongChar;
-                            Console.WriteLine($"The cahracter for the long signal was set to: {morseCode.LongChar}");
+                            Console.WriteLine($"The character for the long signal was set to: {morseCode.LongChar}");
                         }
                         else
                         {
-                            Console.WriteLine($"Unable to set long signal to '{enteredLongChar}', becuase the short signal is currently represented by it.");
+                            Console.WriteLine($"Unable to set long signal to '{enteredLongChar}', because the short signal is currently represented by it.");
                         }
                         break;
                     case '5':
@@ -60,10 +60,10 @@ namespace MorseCodeManager
                         break;
                     case '6':
                         runMainMenu = false;
-                        Console.WriteLine("The main menu of the application was closed.");
+                        Console.WriteLine("The Morse Code Manager application has been closed.");
                         break;
                     default:
-                        Console.WriteLine($"Invalid character! {enteredChar} is not recognized as a vald optiion. Please try again!");
+                        Console.WriteLine($"Invalid input! '{enteredChar}' is not a valid option. Please try again.");
                         break;
                 }
 
