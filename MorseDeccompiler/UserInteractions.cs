@@ -32,12 +32,28 @@ namespace MorseCodeManager
                         Console.WriteLine($"Decompiled text:\n{morseCode.Decompile(textToDecompile)}");
                         break;
                     case '3':
-                        morseCode.ShortChar = GetCharFromUser("Enter the character that will represent the short signal: ");
-                        Console.WriteLine($"The cahracter for the short signal was set to: {morseCode.ShortChar}");
+                        char enteredShortChar  = GetCharFromUser("Enter the character that will represent the short signal: ");
+                        if (enteredShortChar != morseCode.LongChar)
+                        {
+                            morseCode.ShortChar = enteredShortChar;
+                            Console.WriteLine($"The cahracter for the short signal was set to: {morseCode.ShortChar}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Unable to set short signal to '{enteredShortChar}', becuase the long signal is currently represented by it.");
+                        }
                         break;
                     case '4':
-                        morseCode.LongChar = GetCharFromUser("Enter the character that will represent the long signal: ");
-                        Console.WriteLine($"The cahracter for the long signal was set to: {morseCode.LongChar}");
+                        char enteredLongChar = GetCharFromUser("Enter the character that will represent the long signal: ");
+                        if (enteredLongChar != morseCode.ShortChar)
+                        {
+                            morseCode.LongChar = enteredLongChar;
+                            Console.WriteLine($"The cahracter for the long signal was set to: {morseCode.LongChar}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Unable to set long signal to '{enteredLongChar}', becuase the short signal is currently represented by it.");
+                        }
                         break;
                     case '5':
                         Console.WriteLine(morseCode);
