@@ -2,7 +2,7 @@ using System;
 
 namespace MorseCodeManager
 {
-    public static class UserInteractions
+    internal static class UserInteractions
     {
         private static readonly MorseCode morseCode = new MorseCode();
 
@@ -24,13 +24,17 @@ namespace MorseCodeManager
                 switch (enteredChar)
                 {
                     case '1':
+                        Console.WriteLine("\nYou can use lower and uppersase letters as well. Avoid  using very special chracters or symbols that are not part of the morese code table!");
                         string textToCompile = GetStringFromUser("Enter the text you want to compile to Morse code: ");
                         Console.WriteLine($"Compiled text:\n{morseCode.Compile(textToCompile)}");
                         break;
+
                     case '2':
+                        Console.WriteLine("\nUse a single space ' ' between morse codes representing letters, and three spaces '   ' or a single slash '/' between words!");
                         string textToDecompile = GetStringFromUser("Enter the Morse code you want to decompile to text: ");
                         Console.WriteLine($"Decompiled text:\n{morseCode.Decompile(textToDecompile)}");
                         break;
+
                     case '3':
                         char enteredShortChar = GetCharFromUser("Enter the character that will represent the short signal: ");
                         if (enteredShortChar != morseCode.LongChar)
@@ -43,6 +47,7 @@ namespace MorseCodeManager
                             Console.WriteLine($"Unable to set short signal to '{enteredShortChar}', because the long signal is currently represented by it.");
                         }
                         break;
+
                     case '4':
                         char enteredLongChar = GetCharFromUser("Enter the character that will represent the long signal: ");
                         if (enteredLongChar != morseCode.ShortChar)
@@ -55,13 +60,16 @@ namespace MorseCodeManager
                             Console.WriteLine($"Unable to set long signal to '{enteredLongChar}', because the short signal is currently represented by it.");
                         }
                         break;
+
                     case '5':
                         Console.WriteLine(morseCode);
                         break;
+
                     case '6':
                         runMainMenu = false;
                         Console.WriteLine("The Morse Code Manager application has been closed.");
                         break;
+
                     default:
                         Console.WriteLine($"Invalid input! '{enteredChar}' is not a valid option. Please try again.");
                         break;

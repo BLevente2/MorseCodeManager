@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace MorseCodeManager
 {
-    public class MorseCode
+    internal class MorseCode
     {
         private static readonly Dictionary<char, string> complierCodes = new Dictionary<char, string>()
 {
